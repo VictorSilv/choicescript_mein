@@ -1,0 +1,234 @@
+*label init
+
+*comment == Maybe after I will be forced to specify were exactly you came from. As by declare it in a Variable. Thoughts? 
+
+*temp man "man"
+*temp boy "boy"
+
+[i]“My child… if you could go back in time, what period would you like to be in?”[/i]
+
+You are perplexed by the old man question.
+
+As you look at the old man across the stand. It's been a long weird day. You could not remember where you was going when you find yourself inside this old Arcade and talking with this kind man.
+
+You give it a moment before answer. And then, you pick yourself remembering your infancy.
+
+*fake_choice
+  #I was a boy when I got my first videogame.
+    *set bio "man"
+  #I was a girl when I got my first videogame.
+    *set bio "woman"
+    *set man "lady"
+    *set boy "girl"
+ 
+[i]"Ah, the first ones we never forget, do you remember which model it was?"[/i]
+
+*comment ======== I must add some info about each console??
+
+
+*fake_choice
+  #It was a 16-bit console...
+    [i]These ones were not cheap, you must be a lucky ${boy} eh?[/i]
+  #It was a 8-bit console...
+    [i]"Ah. We've got plenty of them back in the day. Fumicom, Saga-genesis, Jaleco Vision…"[/i]
+  #Although I used to use it to play games, my first 'game' was actually a personal computer
+    [i]"I remember, Zispectrum, Lamistad,  Friendly and of course the Almirant 64. The companies advertised then as the gold egg root. But people generally don't knew what to do after buy one. Until their kids discover that you could use then to play games! hehe"[/i]
+  #Weird as it may be. It was a old Altari  2600
+    [i]"Altari… Well, the Icarus of games. They rise above all the others just to burn their wings by being brought for some wall street bigups. Well at least we still got Activision, right?"[/i]
+*page_break
+
+
+*comment === Set your orign here. 
+
+
+
+[i]Where it was? Where do you used to live before working here?[/i]
+
+It was in my home country.
+*choice
+  #I came from America.
+    "[i]Wich one my young ${man}?[/i]"
+    *fake_choice
+      #Central America!
+        *set zone 2
+        [i]Seriously?[/i]
+        *fake_choice
+          #Do you doubt it? Is it because I'm white?.
+            *set Ethnic "Beta"
+          #But my ancestors not. That's why I got this black skin.
+            *set Ethnic "Alpha"
+          #My family were from middle-east.
+            *set Ethnic "Arian"
+          #But as you can see. My parents were Asians.
+            *set Ethnic "Lambda"
+          #You don't see my Latin resemblance?
+            *set Ethnic "Gama"
+      #North
+        *set zone 1
+        [i]Seriously?[/i]
+        *fake_choice
+          #Well. I'm a Latin North American.
+            
+            *set Ethnic "Gama"
+          #But my family has its roots in India.
+            *set Ethnic "Theta"
+          #Pretty much. I'm Native American hence my unique appearance.
+            *set Ethnic "Hindi"
+          #Yes. Although I don't know where my forefathers came from. So I guess I'm a B type averange white ${man}?
+            *set Ethnic "Beta"
+          #But my ancestors not. That's why I got this black skin.
+            *set Ethnic "Alpha"
+          #My family were from middle-east.
+            *set Ethnic "Arian"
+          #But as you can see. My parents were Asians.
+            *set Ethnic "Lambda"
+      #South!
+        *fake_choice
+          #(Sigh) And I'm Brazilian.
+            [i]"Ugh. It's a shame that your country has never been able to produce a good game, only clones. Well, at least one Brazilian made Kerbal Space Program. In Mexico."[/i]
+          #But I'm not Brazilian.
+            [i]"Lucky of you"[/i]
+    *goto first_love
+    
+  #I was born in Great Britain.
+    *set zone 3
+    [i]Seriously?[/i]
+    *fake_choice
+      #Guess. That's myself. born in the Commonwealth.
+        *set Ethnic "Beta"
+      #But my ancestors not. That's why I got this black skin.
+        *set Ethnic "Alpha"
+      #My family were from middle-east.
+        *set Ethnic "Arian"
+      #But as you can see. My parents were Asians.
+        *set Ethnic "Lambda"
+    *goto first_love
+  #I came from Europe.
+    *set zone 4
+    [i]"Interesting, where exactly?"[/i]
+    *fake_choice
+      #Eastern Europe to be honest.
+        *set Ethnic "Beta"
+        [i]"Heh, they used to assemble some funny clones there in the 80s. The crafty side of the Iron Curtain, eh?"[/i]
+      #Iberia.
+        *set Ethnic "Beta"
+        [i]"So do you come to these Uncharted Waters, New Horizons matey? *wink"[/i]
+      #Germany.
+        [i]"das ist wunderbar! they got great management games there!"[/i]
+        *fake_choice
+          #Ja. I'm your averange german ${boy}.
+            *set Ethnic "Beta"
+          #My family were from middle-east.
+            *set Ethnic "Arian"
+          #But as you can see. My parents were Asians.
+          *set Ethnic "Lambda"
+          #But my ancestors not. That's why I got this black skin.
+            *set Ethnic "Alpha"
+      #France.
+        [i]"A amazing power house in game design, despite its government efforts!"[/i]
+        *fake_choice
+          #Oui. I'm a fresh French ${boy}.
+            *set Ethnic "Beta"
+          #My family were from middle-east.
+            *set Ethnic "Arian"
+          #But as you can see. My parents were Asians.
+            *set Ethnic "Lambda"
+          #But my ancestors not. That's why I got this black skin.
+            *set Ethnic "Alpha"
+    *goto first_love
+        
+  #As you can see I'm Asian.
+    *set zone 7
+    *fake_choice
+      #I'm Russian. Well kinda.
+        *set Ethnic "Beta"
+      #My country is the same of Temujin. I'm Mongolian.
+        *set Ethnic "Lambda"
+      #From Pakistan to be exact.
+        *set Ethnic "Arian"
+      #I'm from India, to be exact.
+        *set Ethnic "Theta"
+      #I'm Native Chinese.
+        *set Ethnic "Lambda"
+      #I'm Korean in origin.
+        *set Ethnic "Lambda"
+    *goto first_love
+        
+    
+  #My home country does have a lot of history in game design since I came from Africa.
+    [i]where exactly?[/i]
+    *choice
+      #Super Saarian.
+        *set zone 5
+        *goto Arab
+      #Sub Saarian
+        *set zone 6
+        *goto Musk
+  # The Middle East.
+    *set zone 5
+    [i]"Interesting."[/i]
+    *fake_choice
+      # Israel.
+        [i]"I lived there once. I made a lot of friends and memories there. And I truly enjoy Taito games!"[/i]
+        *set Ethnic "Beta"
+        *goto first_love
+      # My grandparents fled from the Shanghai Ghetto. My grandmother is responsible for my Asian appearance.
+        The old man smirks, remembering a tale from the past.
+        
+        [i]"You know, there is this anecdote that during World War II, the Nazis stepped up pressure on Japan to hand over the Shanghai Jews. 
+        
+        There was an episode when the Japanese military governor of the city sent for the Jewish community leaders. The delegation included the wise and humble Rabbi Kalish. The Japanese governor was curious and asked, 'Why do the Germans hate you so much?'
+        
+        Without hesitation, knowing the fate of his community hung on his answer, Reb Kalish told the translator in Yiddish: 'Zugim weil wir senen mzrkh mentshn.'
+        
+        —'Tell him they hate us because we are Oriental people.' The governor, whose face had been stern throughout the confrontation, broke into a slight smile. In spite of the military alliance, he did not accede to the German demand, and the Shanghai Jews were never handed over."[/i]
+        *set Ethnic "Lambda"
+        *goto first_love
+      # My ancestors lived in Wakanda-Abyssinia until the Soviet purges in the '70s. That's why my skin is black.
+        *set Ethnic "Alpha"
+        [i]"You know, the children of Ibrahim were more akin to you than to your Sephardic and Ashkenazi siblings."[/i]
+        *goto first_love
+      # My Ashkenazi blood doesn't lie.
+        [i]"Ah, so that is why you have this Caucasian appearance?"[/i]
+        *set Ethnic "Beta"
+        *goto first_love
+
+*comment =========== Ethnics ===============
+
+*label Arab
+[i]"So, you come from the place where the first games in history were played by the ancients? Ho ho!"[/i]
+*fake_choice
+  # Yes, and that's why I've got this Semitic appearance.
+    *set Ethnic "Arian"
+  # Yes, but my ancestors were Black, as you can see.
+    *set Ethnic "Alpha"
+  # Yes, but the color of my skin doesn't fit into any stereotype since I am light-skinned, right?
+    *set Ethnic "Beta"
+*goto first_love
+
+*label Musk
+[i]"So, you come from the heart-shaped continent? Ho ho!"[/i]
+*fake_choice
+  # Yes. I believe Black people in the Americas share ancestors from that side of the world as well.
+    *set Ethnic "Alpha"
+  # Yes, although my skin is not black, I am just as African as a Tolkien or a Musk.
+    *set Ethnic "Beta"
+*goto first_love
+
+*comment ========== End Ethnics =============
+
+*label first_love
+[i]"Uhm. It's good to know."[/i]
+*page_break
+
+As the years went by, you inadvertently became involved in programming, eventually turning into a developer at a mid-tier software house in Singapore. On that island, you rose through the ranks to become a team manager, dealing daily with the brutal challenges of development hell... Well, until last week.
+
+*page_break It was a long road to get here...
+
+When you were about six years old, you spent a lot of time playing computer games with your best friend. His family had a room full of computers. To you, they were irresistible. Pure magic. You spent endless hours exploring every game available. One day, you asked your friend, “How do we make a game?”
+
+He didn't know, so he asked his dad, who reached up to a high shelf and pulled down a heavy book of games written in BASIC. 
+
+And so, your journey with programming began. Somehow.
+
+*finish
