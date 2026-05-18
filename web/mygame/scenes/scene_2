@@ -1,0 +1,126 @@
+*label 1
+As you worked you way up three paths of specialty opened before you. And you got your first job thanks to…
+
+*fake_choice
+    #My ability as Level designer in creating interesting game experiences. I'm often praised by my well oiled game mechanics and deal of detail in my works.
+      *set Mecha 3
+        
+    #My Drawings, well not only my drawings alone, I could make vector, pixel art, textures, concept art. Work hard to bring beauty to the game's graphics is no less than duty to me.
+      *set Graph 3
+    
+    #Due to my music scores, I could make anything, from emotional songs to upbeat singles. I'm not an Yoko Kanno in matter of awesome music, but I'm a pretty competent music engineer.
+      *set Music 3
+        
+In the coming years you got involved in various projects due to your talent, and as you studied by yourself, you became pretty competent in…
+*fake_choice
+    *selectable_if (Mecha<3) #Game mechanics, as the times go by I became experienced in Level design, I create pretty puzles and work in game economics and balance.
+      *set Mecha 2
+    *selectable_if (Graph<3) #I learn how to use the best of graphic assets with less resources consumption, turning the games I worked more pretty than the ones I begin playing.
+      *set Graph 2
+    
+    *selectable_if (Music<3) #I learn how to play a few instruments, and also how to differenciate the various styles and techniques of mixing and editing music.
+      *set Music 2
+        
+To be human is to be flawed. Everybody got some kind of difficulty learning some trade, how about you?
+
+*fake_choice
+  *selectable_if (Mecha<2) #I admit I'm a little awful when it comes to level designing and game mechanics.
+    *set Mecha 1
+  *selectable_if (Graph<2) #Even if I got a reasonable understanding in user interface. I'm never really could grasp the minor works of drawing nice graphics and visual effects.
+    *set Graph 1
+  *selectable_if (Music<2) #I got not a good 'musical ear' if you get me. the BGM is aways a part of a project that get me troubled.
+    *set Music 1
+    
+So your abilities are like this:
+
+*set Attrib1 Graph
+*gosub_scene routines cap_stats
+Graphics: [b]${Attrib2}[/b]
+
+*set Attrib1 Mecha
+*gosub_scene routines cap_stats
+Game Mechanics: [b]${Attrib2}[/b]
+
+*set Attrib1 Music
+*gosub_scene routines cap_stats
+Music: [b]${Attrib2}[/b]
+
+Is that alright?
+*choice
+  #Alright let's go!
+    *goto 2
+  #No let me reconsider...
+    *set Music 0
+    *set Graph 0
+    *set Mecha 0
+    *goto 1
+  
+*label 2
+
+Soon you learn that your ability as engineer alone was only part of what is needed to became a team manager. With experience you raised your abilities due to study and hard work, you can say that your best ability, the one that got you to Management was…
+
+*fake_choice
+  #My ability in business of course, I aways took inspiration from guys like Henry Ford, Thomas Edison, Elon Musk. Guys that knew how to handle a negotiation, make the best out of the worst and got a great deal of ambition!
+    "Sadly, turn out you never became a CEO, because you do got the appeal to be"
+    *set Business 4
+   #My natural ability dealing with people! I'm sufficiently extrovert and doesn't fear face the crowd to sell my amazing ideas! I took inspiration from great showmen like Steve Jobs, Ray Kroc, Barnum.
+     "Uh these people weren't really regarded as trustworthy, but I've got you"
+     *set Showmanship 4
+   #As weird as it may be. It was Actually because of my geekyness. I aways followed the newest trends in technological advancements and my unusual knowledge aways give my team a edge over others. I took inspiration from great innovators like Steve Wozniak, Sid Meyer, Tesla.
+     "Oh the last one was cool. too bad the world never quite appreciate the gift the man tried to offer".
+     *set Geekness 4
+     
+And about your other abilities? In which field you consider yourself competent?
+*fake_choice
+  *selectable_if (Showmanship<2) #My ability to present my projects to the stakeholders makes me one of the best choices in our company during business events, conventions and the likes. I can express myself easily and keep the audience distracted until the coffee breaks.
+    *set Showmanship 2
+  *selectable_if (Business<2) #My [i]savoir faire[/i] is acceptable. I can negotiate deals with the Junior Executives of our distribution   offices as a peer, and even minor dealings and agreements that require some technical support.
+    *set Business 2
+  *selectable_if (Geekness<2) #My geek knowledge towards tech are more than sufficiently accurate towards the twists and turns of the industry. And I know how and when expect the great changes to occur.
+    *set Geekness 2
+    
+And in these fields, what is your weak spot?
+
+*fake_choice
+  *selectable_if (Showmanship<2) #I'm extremely shy and socially inept. you better never fall victim of one of my dreaded PowerPoint presentations!
+    *set Showmanship 1
+  *selectable_if (Business<2) #My knowledge regards businesses and the like, I more an artisan than a merchant.
+    *set Business 1
+  *selectable_if (Geekness<2) #I'm not that good with computers. Nor exactly your nerd role model. At least I know the difference between JavaScript and Java. But I never really got into Star Trek...
+    *set Geekness 1  
+    
+Ok. So your 'Corporate' abilities could be summarized as:
+
+*set Attrib1 Geekness
+*gosub_scene routines cap_stats
+Geekyness: [b]${Attrib2}[/b]
+
+*set Attrib1 Showmanship
+*gosub_scene routines cap_stats
+Show${bio}ship: [b]${Attrib2}[/b]
+
+
+*set Attrib1 Business
+*gosub_scene routines cap_stats
+Business Savvy: [b]${Attrib2}[/b]
+
+
+
+
+ 
+  
+  
+
+Right?
+
+*choice
+  #Yes that's right!
+    "Please now tell me about your last project. the one you was working with your team until last week...
+    *finish
+  #No. Let me reconsider...
+    *set Showmanship 0
+    *set Business 0
+    *set Geekness 0
+    *goto 2
+
+       
