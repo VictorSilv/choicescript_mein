@@ -1,0 +1,531 @@
+*label fateful_meeting
+*temp executive_mood "cold"
+*temp corporate_greed 100
+
+The glass-walled boardroom on the 42nd floor overlooks the Marina Bay sands. The air conditioning is freezing, matching the expression of Mr. Vance, the Senior Vice President of Global Monetization, and Ms. Tanaka, the Regional Chief of Operations.
+
+Your presentation finishes. The projector screen fades to black. You stand there, waiting for the applause your dream game deserves.
+
+Instead, Vance clears his throat, clicking his pen. 
+
+"An interesting passion project," Vance says, not looking at you. "But this is 2026, not 1998. The market data has arrived from our central analysts. We are implementing structural pivots to your design document."
+
+*temp ending "ending"
+
+*if proj_genre = "RPG"
+  "A narrative-driven RPG is too slow for modern audiences," Ms. Tanaka states coldly. "People don't want to read branching dialogue trees anymore; they want short, repeatable gameplay loops. We are cutting the story. This project will now be a Live-Service Hero Shooter."
+  *set artistic_value - 30
+  *set game_quality - 20
+  *set proj_genre "Hero Shooter"
+
+*if proj_genre = "Action"
+  "A high-octane competitive action game based on pure player skill? That limits our audience," Vance smiles thinly. "If a game relies too much on skill, bad players leave, and bad players have wallets too. We are introducing algorithmic rubber-banding and a heavy auto-aim system to flatten the skill gap."
+  *set game_quality - 30
+  *set artistic_value - 20
+  *set proj_genre "Casual Brawler"
+
+*if proj_genre = "Puzzle"
+  "Cute Kittens managing a Space Program? Abstract puzzle mechanics?" Vance lets out a dry, mocking laugh. "It's very thoughtful. Too niche though. The average mobile consumer will uninstall it within three minutes. We are swapping the kittens for legally distinct space marines, and we are automating the building mechanics so players can just pay to skip the puzzles."
+  *set ending "last tech tree branch"
+  *set artistic_value - 50
+  *set proj_genre "Auto-Battler"
+
+*page_break The Desecration
+
+You feel the blood rush to your ears. "But the community..." you try to speak, but Tanaka, a junior executive, cuts you off.
+
+"Let us discuss the distribution model," Tanaka says, pulling up a new slide filled with red graphs. 
+
+*if proj_monetization = "Premium"
+  "A complete offline package? No DRM? A physical manual?" Vance looks genuinely offended. "We are running a business here and not a charity. If it's offline, how do we track their data? How do we sell them dynamic battle passes? Forced internet connection is now mandatory, its the [i]industry standart[/i]. And that 'soundtrack disk' you wanted? Cut it. We will split the music tracks and sell them as individual pre-order DLC bonuses."
+  *set proj_monetization "Always-Online Live Service"
+  *set commercial_appeal + 40
+
+*if proj_monetization = "Modern"
+  "Free post-launch expansions? That is a waste of post-launch momentum," Vance sighs, shaking his head. "Why give away content for free when we can purposefully cut the third act of the game right now, lock it behind a Day-One Season Pass, and charge them an extra thirty dollars for the ${ending}?"
+  *set proj_monetization "Aggressive DLC Model"
+  *set commercial_appeal + 20
+
+*page_break The Breaking Point
+
+*fake_choice
+ # "You are desecrating the project!" you slam your hands on the mahogany table. 
+ # "The dev team worked their souls off for eighteen months! Eight teen MONTHS!"
+ # "This is a complete betrayal of the players!"
+
+Mr. Vance doesn't even flinch. He slides a tablet across the table toward you. On the screen is a digital contract.
+
+"This company owns the IP, and this company dictates the revenue streams," Vance says, his voice dropping to a freezing whisper. "You have two choices. You can sign this amendment, accept your corporate bonus, and manage the live-service metrics like a good soldier... or you can leave this room, pack your desk, and find out how small the gaming industry truly is when a senior producer gets blacklisted."
+
+Your hands are shaking. You dream...
+
+*page_break you dream... is dead?
+
+Your dream is dead, mutated into a monstrous corporate slot machine. 
+
+What will you do?
+*choice
+  # Sign the contract. Swallow your pride, take the corporate money, and watch your dream turn into ash.
+    You slowly pick up the stylus. Your fingers feel heavy, numb. You sign your name on the dotted line. Vance smiles, patting your shoulder. 
+    
+    That night, you sit in a luxury bar in Singapore, drinking a thousand-dollar whiskey paid for by the company. You are rich. You are successful. And you feel completely empty inside. You look at your phone—an email from an old colleague in Tokyo pops up, offering a simple tech consulting gig. You consider accepting it, if just to escape this gilded cage.
+    *set corporate_greed + 50
+    
+    *page_break As such, the years go by.
+    *goto tokyo_bound
+  # Refuse to sign. Flip the table, pack your things, and walk out of the building with your dignity intact.
+    "Keep your bonuses," you spit out, tossing the stylus back at Vance. "I became a developer to make art, not digital casinos."
+    
+    Within two hours, you are standing outside the glass tower, holding a single cardboard box containing your notebook and your desk mug. Your corporate ID badge is deactivated. Your phone rings—your bank account has been locked out of the company health insurance. But as you breathe in the humid Singapore air, you feel a strange sense of liberation. You need a clean break. A total restart. You wander into the night...
+    *set artistic_value + 30
+    *goto singapore_bound
+
+
+*label tokyo_bound
+Its a dark and damp rainy day you and your team, at least the ones who didn't quit out of misguided fidelity, have been working on this project nicknamed '[i]White Elephants[/i]' for almost a year with no sign of end.
+
+it was originally planned to be a...
+*fake_choice
+  #It Action game but...
+    It is now a Powerpoint presentation game with how all is a mess of bad optmization after Ms. Tanaka our new Chief Research Operator Director decided to force the use of a new Engine over the old one...
+  #It was a R P G, but things got derailed since then...
+    You had prepared a grand MMO RPG with skill set, exploration, crafting… At least at the beginning. Since the directory begins to want us to implement pay to win mechanics that would make the game insufferable for young newbies that got no cash or Guilds. And with an unbalanced mechanics that would kill the game's economy. No one wants another Diabo 3 hyperinflation incident.
+    
+  #It was a casual game.
+    It was a cute 2048 stylish game, were you are a mayor and must build village and cities across multiple islands. The game had nice mechanics with power ups, events and nice visual effects, until they managed that any and all features would be [i]'freemium'[/i] turning the game into a fancy demo for anyone unwilling to pay for win. 
+
+  # ${proj_genre}.
+    As ridiculous as it may sound. We are stuck in development hell for all these years still "developing" your "not-dream" game. Oh don't take me wrong we already launched it, with mixed results. The (paid) "expert" press and (paid) critics love it. But its since them "suffering" from sucess as the company sucks you and your team dry out of new patches, missions and DLCs to exploit the half-dead cow a little more for milky profits out of a "proven product"... It is all very bad really.
+
+Only damaging the product quality and turning harder to compete in a already saturated market.
+    
+
+
+*label 0
+*comment aqui começa
+
+
+As you entered the meeting room, your team's concerns about the project were palpable. The CEO Vance's forced smile and his sycophantic team members reminded you of vultures circling prey.
+
+
+"Regarding this project, does anyone object to our decision to focus exclusively on mobile platforms?"
+
+[i]‘No, I disagree with that, you bastard…’ [/i]
+*choice
+  #It was what I wish to say loud.
+    However, like always, I kept my thoughts to myself. God damn…
+    *goto 1
+  #It was what I told to his face!
+    *set Attrib0 3
+    The director looked deeply annoyed and asked:
+    *line_break
+    "O-OI! There is no need for offenses…"
+    *goto naming
+  
+*label 1
+“How much time do we have to make the final deadline?”
+
+“The beta is planned to be released by May, so won’t we have to finish it by February?”
+
+*choice
+  #What? They’re giving us only 6 months to overhaul the current project and remake it from the start? Are you playing with us?
+    There was a  muffled gasp in the room as Director Ms. Tanaka narrowed his eyes in your direction.
+    *goto naming
+    
+  #Stay silent
+    *goto 02
+
+
+*label 02
+You was boiling with anger.  The CEO Vance, oblivious, was picking his nose and nodding off. He probably thought we could crank out a game in a few months, then rake in the cash.
+
+There was no way that was happening. you can bet your 10 fingers that this project will be an utter failure.
+
+At that moment, one of the directors must have seen the disapproval on you face and opened his mouth.
+*line_break
+
+*label naming
+*temp mr "Mr."
+*if (bio = "woman")
+  *set mr "Mrs."
+
+"${mr}?…"
+*line_break
+The bastard makes a pause, as if trying to remember your name, as if you aren't been working years here.
+
+*if (bio = "woman")
+  *goto female
+*label male
+
+*fake_choice 
+  #Philipe
+    *set name "Philipe"
+  #Junhyuk
+    *set name "Junhyuk"
+  #Charles
+    *set name "Charles"
+  #Miguel
+    *set name "Miguel"
+  #George
+    *set name "George"
+  #I'd rather write it down.
+    *input_text name
+    
+   
+*goto 3
+*label female
+
+*fake_choice 
+  #Philipa
+    *set name "Philipa"
+  #Beatrice
+    *set name "Beatrice"
+  #Christine
+    *set name "Christine"
+  #Maria
+    *set name "Maria"
+  #Nubia
+    *set name "Nubia"
+  #I'd rather write it down.
+    *input_text name
+
+*label 3 
+
+And your surname is
+*fake_choice
+  #Kang
+    *set surname "Kang"
+  #Artois
+    *set surname "Artois"
+  #Whiteleaf
+    *set surname "Whiteleaf"
+  #daSilva
+    *set surname "daSilva"
+  #Oppenheimer
+    *set surname "Oppenheimer"
+  #I'd rather write it down.
+    *input_text surname
+
+"${mr} ${name} ${surname}. Do you have a problem? I beg you for share with us your 'oh' too deep concerns"
+
+*choice 
+  #"“Director Ms. Tanaka, the concept of this project is completely different from what we planned in the beginning. The game will charge the users serious money; if we release it like this, the users will be definitely be displeased. This won’t fare well for our company’s image.”"
+    As you said that, Director Han looked at you with a wrinkled eyebrow. He had the habit of wrinkling his eyebrows like that whenever someone even slightly criticized his words.
+    
+    “I even extended the deadline of the last project for you. You should remember exactly how that turned out..” He argued.
+    
+    You couldn't help but struggle against the revolt that these words caused to your and your team mates since it was Director Ms. Tanaka and his endless interferences and despotic desmands mid-development that caused these project delays in the first place!!
+    
+    
+    *goto 4
+    
+  *selectable_if (Attrib0 > 1) #"You, know..."
+    After you asked if Director Ms. Tanaka did not whant to go make an anatomically improbable thing, you excused yourself and exit the room. The look in the eyes of your teamates almost made the impending demission you know you got to get in the HR department almost make it all worth the trouble.
+    
+    
+    The look in their eyes… They eye you as if you are some kind of hero!
+    *goto bend.
+  
+*label 4 
+
+You coleagues also had a plethora of words to say, but they wasn't stupid enough voice your opinions. All that would happen as the CEO Vance, who was picking his nose by the way, remain oblivious, and Mr. Ms. Tanaka isn’t the type of person that would stick up for your or any other team manager either.
+
+*line_break
+*line_break
+[i]“As you all know, the gaming industry of our time consists mainly of mobile games. The PC games that we thought would be immortalized have rapidly decreased in popularity. Anyway, we must prioritize our focus to mobile games. In the past, ‘BetMarble’ had about the same revenue as us but they instantly grew to a conglomerate in the top 5 rankings after releasing one mobile game. Do you all feel nothing after seeing this? You don’t have any thoughts on how to make the company hit the jackpot?”[/i]
+
+[i]“Yeah, that’s right. Director Han speaks well~”[/i] The CEO Vance sided with Mr. Ms. Tanaka. No surprise...
+
+*line_break
+*line_break
+BetMarble… They hit the "jackpot" after releasing a mobile version of the popular board game “Blue Marble”, but after a while, due to a scam with the billing process being exposed, most of the users left the game.
+
+*page_break
+“And the company, GameTown, which was smaller than us, is releasing new titles every quarter. Look at the state we're in! We haven’t released anything new for the past two-quarters. Does this make any sense?”
+*line_break
+*line_break
+
+The CEO Vance agreed with Director Ms. Tanaka again.
+
+“Yeah, that’s very good.”
+
+The more you heard the executives speak, the more baffled you became. For the last project, you and your team would have finished last April if had strictly followed the initial plan. However, everything went south when changes were constantly made in an attempt to increase the potential revenue for the game. The project was inevitably delayed due to these constant updates.
+
+
+On top of that, the game was switched to a mobile platform, so the effort that You've put into this project since last November was lost. Director Ms. Tanaka was arrogantly talking while the idiot CEO Vance nod as a parrot.
+
+*line_break
+*line_break
+"I was thinking it would be best for the Team Leader of the project, ${mr} ${surname}, to drop out. How about moving to the customer service department for awhile? You like interacting with the users, right?”
+
+*fake_choice
+  #what?
+    “${mr} ${surname}, the kind of games you make are too...[i] player-oriented[/i]. They don't make much money at all for the company. As I always say... We’re not some kind of a charity service. If you make a free download game, you should be thinking of ways to extract money from the players, not shower them with free items. Anyway, I’ll be personally leading this project. ${mr} ${surname} can transfer to another department for now. Or you can just stay at the customer service department and take care of the players forever.”
+
+It was surreal. The modifications that Director Ms. Tanaka made to your games were the ones that caused umbalance to the machanics, with such unpondered and rushed decisions and the need to maintain the deadlines of the project. 
+It was obvious that the result would be garbage;
+
+*line_break
+And the fact that a design Director who didn't know anything about programming, project management or simply common sense is the one going to take charge…
+
+The faces of your programmers for this project were ugly.
+*line_break
+
+*line_break
+“What’s the problem with everyone’s expressions? If you have any complaints, speak up now. I’ll put you in customer service with ${mr} ${surname}.”
+
+
+*line_break
+The room was silent after Director Ms. Tanaka spoke.
+
+*line_break
+The reason was because being transferred to the customer service department was the second most humiliating experience for a programmer.
+*line_break
+(The alleged first happened when Atarii got brought by Warner and the suits put the programmers to weld silicon plates in the factory floor.)
+*page_break End of the shift.
+
+“#$%¨&!, I can’t do this anymore, Team Leader. I can’t work under Director Ms. Tanaka, that bastard.” Said Mr. Lee, whom You had a deep friendship.
+
+*line_break
+The hour hand on you wristwatch was pointing  10 pm. Phew… To be working overtime the day before your department transfer.
+
+
+
+As You organized your belongings in a box, Mr. Lee came out of the No. 2 Development Office.
+
+*line_break
+*line_break
+“Team Leader, are you really going to leave like this without saying anything?”
+
+*fake_choice
+  #“What if I do say something? Do you think Director Han would listen to me?”
+    “But you should at least try.”
+
+  #“It’s fine. I’m done with this. The current CEO Vance and the past CEO Vances’ visions are completely the opposite of each other. Didn’t you see what he was saying next to Director Ms. Tanaka?”
+    "Team Leader. If you persuaded me to join the any other company to make a great game together, I would say that I would only accept it if you were in the position of team leader.”
+
+    “If you whant to follow me so bad. Then would you want to follow me to the customer service department?” You couldn't help but tease.
+
+    “That’s not what I’m saying~!!”
+  *selectable_if (Showmanship > 2) #"Look at me.."
+    You look Lee deep in the eye. Your ability to inspire your men was not for show, you keep these boys motivated even with the ones like Director Ms. Tanaka sabotaging the project senseless. Mr. Lee was the most senior employee in your team. The kid has been looking up to you every time his confidence faults. If you will be no longer able to stay with your team. At least you can try to guide their future leader in the right path.
+    *line_break
+    *line_break
+    You put your hand in his shoulder and say in a serious tone.
+    *line_break
+    "I'm can do nothing out of the development. But you can! not for me, not for the company, but for the Players. It is not their fault. They do not deserve to suffer any more because of the incompetence of these suit arses."
+    
+    *line_break
+    *line_break
+    You make a pause.
+    
+    
+    "Do you remember what the old Team Leader used to say every time whenever he'd begin to work in a project?"
+    
+    
+    *line_break
+    "Player is Paramount!" Mr lee said with a firmly nod.
+    
+    "[i]Player is Paramount![/i] Never forget it!"
+    
+You resume your walk.
+
+"Farewell Mr. Lee. It was a honor"
+
+*line_break
+
+“Have a good night, Team Leader.” He said deflated.
+
+*line_break
+
+After saying goodbye to Mr. Lee, You stepped outside. Cold air brushing against your face. Was autumn coming already? You looked back at the company for a last time before heading to the parking lot.
+
+You did try to think of your life. You are still a single ${bio}, focusing your life in your career and experience as a programmer, but, Is like all this was for nothing.
+
+*page_break Just a speck of dust in the wind.
+
+You thought you could create any game you wanted when first entered this software company, but in the end, you make yourself busy making other people’s games for the first years. 
+
+This was no different even after promotion to Team Leader. 
+*line_break
+*line_break
+Instead of highlighting how your game was unique, You saw yourself obliged to give a presentation on how much profit the game would bring in compared to the production costs.
+
+
+In the end, the games you made were unsuccessful. Of course, that was to be expected… while in the process of developing the game, many people added their input ignoring the requisites of development and the interest of the main stakeholders, the players,  so the end result was completely different from the original concept and the project reduced to a mumble jumble of features of poorly balanced gameplay.
+ 
+On top of that, due to the deadline being rushed on many occasions, the games were often riddled with bugs and server problems.
+
+
+
+The recent trend for releasing mobile games was always speed. Within 2 weeks of a game's first release, the developers would make a decision on whether or not the game would be a hit or not and decide to discontinue the service. If it seemed that the game would be successful, the entire industry would replicate the concept of the game, make slight changes before releasing it, and argue that everyone else copied their program.
+
+*page_break It was like watch the ‘Atari Shock’ all over again!
+
+In the 1980s, the American game industry went into a great recession which was known as one of the darkest moments in gaming history. Numerous games that didn’t go through a proper testing period flooded to the market. An example of this was the game developed by Atari called E.T.
+
+The game, Extra Terrestrial, was developed in 5 weeks to be released in time for Christmas. Needless to say, it was a disaster. Millions of unsold game packages were dumped in the middle of a desert in New Mexico.
+
+An industry of almost 3 billion dollars shrank to about a hundred million after this incident and was known as the ‘Atari Shock.’
+
+The current market behavior was no different from back then.
+
+    
+*page_break 
+*label bend.
+...
+
+*line_break
+*line_break
+As the city lights light up over the roofs of the office buildings the shoe begin to drop and you turn yourself aware of what you did today…
+*fake_choice 
+  #Goddess I need a drink!
+    Indeed you look like you could make use of some fresh cold drink…
+    *line_break
+    Was this one of the benefits of being single? If you got yourself drunk with 2 bottles of booze at the nearest bar. Yeah, how could one not knock thenself out on a day like this~ lol.
+    *line_break
+    *line_break
+    *line_break
+    (...)
+    In drunken stupor, You completely Ms. Tanakamered thyself and cackled while meandering in the streets. 
+  #I'm Starving...
+    Gonna get some noodles, french fries perhaps?
+    You sit. And eat. Eat. Eat. There is a emptiness that no food seems to be able to fill. You wonder if there is anyone back home that would... that could...
+
+
+*label eof
+All you wanted was to make a name for yourself in game development. 
+
+*choice
+  #F*cking hell… my dream of being a game developer was ending like this?
+    You walk a lone road in the turns and corners of the lonely but still vibrant city. With no destiny, just lethargic walking. You catch yourself humming.
+    *line_break
+    *line_break
+    [i]"My shadow's the only one that walks beside me[/i]
+    *line_break
+    [i]My shallow heart's the only thing that's beating[/i]
+    *line_break
+    [i]Sometimes I wish someone out there will find me"[/i]
+    
+    *page_break Till then I walk alone…
+    *goto pong
+  *selectable_if (Business > 2) #It will no end like this.
+    "I know I can reinvent myself! Maybe is time to form my own team. Time to Kickstart and going Indie! time to..."
+    *page_break PewPewPew!
+    *goto pong
+    
+*label pong
+[b]-PewPewPew~[/b]
+
+At that moment the sound of a beeping tune caused you to stop in your tracks.
+*line_break
+*line_break
+[b]-BloopBleepBloopBloopBleepBleep[/b]
+*line_break
+*line_break
+It was almost like the background music one would hear from an old arcade shooting game, but your surroundings were nothing but old shops.
+*line_break
+*line_break
+[b]-Pew~ PewPew~[/b]
+*line_break
+*line_break
+However, you heard this for sure. This was the sound of a missile shooting from an old arcade shooting game… Reminiscing your childhood memories, you hastily looked around your surroundings and looked for the noise.
+*line_break
+*line_break
+[b]-Boing~ Boing~[/b]
+*line_break
+*line_break
+This time, it was the SFX that Super Malio made when he jumps? Perhaps there was an arcade around here? But from what you know, arcade rooms should have disappeared by the 90s.
+*line_break
+*line_break
+However, on the slight notion that there was an arcade, you hastened your footsteps toward the noise. It might sound silly, but these beeping noises were like a memory of an old pop song to you.
+
+How long have you wandered around like this at midnight?
+
+A brightly lit store in a remote alley came into your view. On the glass display of the store was an old TV box, as well as rows of game cartridges packed together.
+*line_break
+*line_break
+[i]“Welcome to our shop.”[/i]
+*line_break
+*line_break
+Inside the store, a gray-haired old man was smilling as he watched you step inside.
+
+
+
+“He-Hello, mister.”
+
+
+*page_break And that is how I meet your shop, sir...
+
+*label singapore_bound
+
+*page_break The Flight to 1983
+
+Two days later, you are on a flight to Japan. The stress of the blacklisting, the sleepless nights, and the crushing disappointment weigh heavily on your chest. You close your eyes as the airplane engines roar, clutching your old notebook tightly against your lap. 
+
+[i]“My child… if you could go back in time, what period would you like to be in?”[/i]
+
+The old man's voice from the arcade echoes in your mind, blending with the hum of the aircraft. 
+
+Suddenly, a violent jolt of turbulence shakes the cabin. The lights flicker out. The oxygen masks don't drop—instead, a blinding, static white light engulfs your vision. The sound of jet engines transforms into the electronic, synthesized screech of a loading tape drive.
+
+Your chest tightens. You can't breathe. You are falling... falling through lines of code, through glowing green phosphor phosphor-screens, cascading backward through decades of gaming history.
+
+*page_break
+
+
+*temp bootlick 0
+Its a dark and dump rainy day. you and your team have been working in this project nicknamed 'White elephants' for almost a year and with no sigh of end.
+
+it was originally planned to be a...
+*choice
+  #It was a R P G. but things got derailed since then...
+    You had prepared a grand MMO RPG with skill set, exploration, crafting… At least at the beginning. Since the directory begins to want us to implement pay to win mechanics that would make the game insufferable for young newbies that got no cash or d. And with an unbalanced mechanics that would kill the game economy. No one wants another Diabo 3 hyperinflation incident.
+    *goto rpg
+  #It was a casual game.
+    It was a cute 2048 stylish game, were you are a major and must build village and cities across multiple islands. The game had nice mechanics with power ups, events and nice visual effects, until they managed d that any and all features would be 'freemium' turning the game into a fancy demo for anyone unwilling to pay for win.
+    *goto casual
+
+*label rpg
+
+*label casual
+*label survival
+*label fps
+
+
+
+*label appointment
+
+“About this project, no one has any objections about steering it towards being exclusively mobile-oriented, right?”
+
+‘No, I disagree with that, you bastard…’ 
+*choice
+  #It was what I think loud.
+    However, like always, I kept my thoughts to myself. God damn…
+    *goto 1
+ 
+
+  #It was what I told to his face!
+    The director looked deeply annoyed and asked:
+    *goto naming
+  
+*label 1
+“How much time do we have to make the final deadline?”
+
+“The beta is planned to be released by May, so won’t we have to finish it by February?”
+
+
+‘What? They’re giving us only 6 months to overhaul the current project and remake it from the start? Are they playing with us?’
+
+You was boiling with anger. The company CEO Vance had been picking his nose and absentmindedly nodding his head from his seat. He probably thought that with just 2 months of working on the game, and a month of advertising the game, the dough would start rolling in.
+
+There was no way that was happening. you can bet your 10 fingers that this project will be an utter failure.
+
+At that moment, one of the directors must have seen the disapproval on you face and opened his mouth.
+
+*label naming
+*temp mr "Mr."
+*if (bio = "woman")
+  *set mr "Mrs.)
+  
+  
